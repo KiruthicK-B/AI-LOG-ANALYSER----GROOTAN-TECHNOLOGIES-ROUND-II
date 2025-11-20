@@ -1,0 +1,182 @@
+[REDACTED_DOB_ISO] 08:15:23.145 INFO [Server] Application started on [REDACTED_URL]
+[REDACTED_DOB_ISO] 08:15:23.167 INFO [Database] Connected to MongoDB at mongodb:/[REDACTED_FILE_PATH]:P@[REDACTED_EMAIL_LIKE]:27017[REDACTED_FILE_PATH]
+[REDACTED_DOB_ISO] 08:15:24.234 INFO [Auth] User login successful - username: [REDACTED_EMAIL_LIKE], IP: [REDACTED_IPV4]
+[REDACTED_DOB_ISO] 08:16:45.567 INFO [API] GET [REDACTED_FILE_PATH] - User: [REDACTED_EMAIL_LIKE], [REDACTED_SESSION_ID]
+[REDACTED_DOB_ISO] 08:17:12.890 INFO [Payment] Processing payment for user_id: 12345, card: **** **** **** 4532, amount: $299.99
+[REDACTED_DOB_ISO] 08:18:33.245 WARN [RateLimit] Rate limit approaching for IP: [REDACTED_IPV4], [REDACTED_NAME]: sk_live_51M7xYz2eZvKYlo2C3h4i5j6k7l8m9n0
+[REDACTED_DOB_ISO] 08:19:04.678 INFO [Cache] Cache hit for key: [REDACTED_EMAIL_LIKE]
+[REDACTED_DOB_ISO] 08:20:15.123 INFO [Email] Sending password reset email to [REDACTED_EMAIL_LIKE]
+[REDACTED_DOB_ISO] 08:21:45.456 INFO [Session] New session created for user: [REDACTED_EMAIL_LIKE], token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzM0NSIsImVtYWlsIjoiZGF2aWQud2lsc29uQGNvbXBhbnkubmV0In0
+[REDACTED_DOB_ISO] 08:22:30.789 INFO [Upload] File uploaded successfully - [REDACTED_FILE_PATH] by user [REDACTED_EMAIL_LIKE]
+
+[REDACTED_DOB_ISO] 08:23:15.234 ERROR [Database] Connection failed to PostgreSQL at postgresql:/[REDACTED_FILE_PATH]:SecretPass456!@db-primary.cloudserver.com:5432[REDACTED_FILE_PATH]
+Error: connect ECONNREFUSED [REDACTED_IPV4]:5432
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1148:16)
+    at [REDACTED_FILE_PATH]:127:10
+Stack trace: DatabaseConnectionError
+    at Object.<anonymous> ([REDACTED_FILE_PATH]:45:12)
+    at Module._compile (internal[REDACTED_FILE_PATH]:1063:30)
+    at Object.Module._extensions..js (internal[REDACTED_FILE_PATH]:1092:10)
+
+[REDACTED_DOB_ISO] 08:24:45.567 ERROR [Auth] Authentication failed for user: [REDACTED_EMAIL_LIKE] from IP: [REDACTED_IPV4]
+Reason: Invalid password attempt #3
+[REDACTED_NAME]: Potential brute force attack detected
+User Agent: Mozilla[REDACTED_FILE_PATH] ([REDACTED_NAME] 10.0; Win64; x64)
+[REDACTED_NAME]: [REDACTED_URL]
+
+[REDACTED_DOB_ISO] 08:25:33.890 INFO [Middleware] Request processed - Method: POST, Path: [REDACTED_FILE_PATH]
+Request Headers: { 
+  'Authorization': '[REDACTED_BEARER_TOKEN]',
+  'X-User-Email': '[REDACTED_EMAIL_LIKE]',
+  'X-Forwarded-For': '[REDACTED_IPV4]'
+}
+
+[REDACTED_DOB_ISO] 08:26:12.123 ERROR [Validation] Invalid input data received
+User: [REDACTED_EMAIL_LIKE] (ID: 98765)
+Phone: +[REDACTED_PHONE_E164]
+Address: 123 Main Street, Apt 4B, [REDACTED_NAME], NY 10001
+SSN: ***-**-7890
+[REDACTED_NAME]: [REDACTED_CREDIT_CARD] (Visa)
+Error Details: ValidationError: "email" must be a valid email
+    at Object.exports.process ([REDACTED_FILE_PATH]:196:19)
+    at internals.Object._validateWithOptions ([REDACTED_FILE_PATH]:675:31)
+
+[REDACTED_DOB_ISO] 08:27:45.456 ERROR [Payment] Payment processing failed for transaction_id: [REDACTED_TRANSACTION_ID]
+Customer: [REDACTED_EMAIL_LIKE]
+[REDACTED_NAME]:
+  [REDACTED_NAME]: [REDACTED_CREDIT_CARD]
+  [REDACTED_CVV]
+  Expiry: 12[REDACTED_FILE_PATH]
+  [REDACTED_NAME]: 456 [REDACTED_NAME], [REDACTED_NAME], CA 90001
+Error: PaymentGatewayError: Insufficient funds
+    at processPayment ([REDACTED_FILE_PATH]:234:15)
+    at PaymentController.charge ([REDACTED_FILE_PATH]:89:23)
+Gateway Response: {"error_code":"insufficient_funds","decline_reason":"card_declined"}
+
+[REDACTED_DOB_ISO] 08:28:30.789 INFO [Audit] Admin action logged - User: [REDACTED_EMAIL_LIKE]
+Action: DELETE_USER
+[REDACTED_NAME]: [REDACTED_EMAIL_LIKE]
+[REDACTED_NAME]: [REDACTED_IPV4]
+Timestamp: 2024-11-20T08:28:30.789Z
+[REDACTED_NAME]: ses_Kd9fH3jL2mN5pQ7rT8vW1xY4zA6bC
+
+[REDACTED_DOB_ISO] 08:29:15.234 ERROR [API] Unhandled exception in user registration endpoint
+POST [REDACTED_FILE_PATH]
+Request Body: {
+  "username": "christopher.lee",
+  "email": "[REDACTED_EMAIL_LIKE]",
+  "[REDACTED_PASSWORD]",
+  "phone": "+44-20-7946-0958",
+  "ssn": "[REDACTED_SSN_US]",
+  "address": {
+    "street": "789 [REDACTED_NAME]",
+    "city": "Chicago",
+    "zip": "60601"
+  }
+}
+TypeError: Cannot read property 'hash' of undefined
+    at hashPassword ([REDACTED_FILE_PATH]:67:8)
+    at UserService.createUser ([REDACTED_FILE_PATH]:156:22)
+    at async UserController.register ([REDACTED_FILE_PATH]:45:5)
+
+[REDACTED_DOB_ISO] 08:30:45.567 ERROR [Database] Query execution failed
+Query: SELECT * FROM users WHERE email = '[REDACTED_EMAIL_LIKE]' AND [REDACTED_PASSWORD]'
+Database: mysql:/[REDACTED_FILE_PATH]:MySQLRootP@[REDACTED_EMAIL_LIKE]:3306[REDACTED_FILE_PATH]
+Error: ER_ACCESS_DENIED_ERROR: Access denied for user 'root'@'[REDACTED_IPV4]'
+    at Protocol._enqueue ([REDACTED_FILE_PATH]:144:48)
+    at Protocol.handshake ([REDACTED_FILE_PATH]:51:23)
+
+[REDACTED_DOB_ISO] 08:31:30.890 WARN [Security] Suspicious activity detected
+User: [REDACTED_EMAIL_LIKE]
+Multiple failed login attempts from different IPs:
+  - [REDACTED_IPV4] ([REDACTED_NAME] Node)
+  - [REDACTED_IPV4]
+  - [REDACTED_IPV4]
+Account temporarily locked
+Recovery email sent to: m***********[REDACTED_EMAIL_LIKE]
+Support ticket created: #TKT-2024-1120-8531
+
+[REDACTED_DOB_ISO] 08:32:15.123 ERROR [[REDACTED_NAME]] Failed to fetch user data from third-party service
+[REDACTED_NAME]: [REDACTED_URL]
+[REDACTED_NAME]: ak_live_9f8e7d6c5b4a3g2h1i0j9k8l7m6n5o4p
+Request Headers: {
+  'X-API-Key': 'ak_live_9f8e7d6c5b4a3g2h1i0j9k8l7m6n5o4p',
+  'X-User-Id': '[REDACTED_EMAIL_LIKE]'
+}
+HTTP Error 503: Service Unavailable
+Retry attempted: 3[REDACTED_FILE_PATH] failed
+
+[REDACTED_DOB_ISO] 08:33:45.456 ERROR [FileSystem] Failed to write log file
+Path: [REDACTED_FILE_PATH]
+Error: EACCES: permission denied, open '[REDACTED_FILE_PATH]'
+    at Object.openSync (fs.js:497:3)
+    at Object.writeFileSync (fs.js:1528:35)
+    at Logger.writeToFile ([REDACTED_FILE_PATH]:89:12)
+Current user: www-data (UID: 33, GID: 33)
+Required permissions: rw-r--r--
+
+[REDACTED_DOB_ISO] 08:34:30.789 INFO [OAuth] OAuth callback received from Google
+User: [REDACTED_EMAIL_LIKE]
+[REDACTED_NAME]: ya29.a0AfH6SMBx7Y8Z9W0V1U2T3S4R5Q6P7O8N9M0L1K2J3I4H5G6F7E8D9C0
+Refresh Token: 1/[REDACTED_FILE_PATH]
+Scopes: [openid, profile, email]
+Profile: { 
+  id: "105432198765432109876",
+  email: "[REDACTED_EMAIL_LIKE]",
+  verified_email: true
+}
+
+[REDACTED_DOB_ISO] 08:35:15.234 ERROR [Webhook] Webhook delivery failed
+Endpoint: [REDACTED_URL]
+[REDACTED_NAME]: user.payment.completed
+Payload: {
+  "user_id": "usr_7h8i9j0k1l2m3n4o5p",
+  "email": "[REDACTED_EMAIL_LIKE]",
+  "payment_method": "credit_card",
+  "last_four": "6789",
+  "amount": 149.99,
+  "currency": "USD",
+  "ip_address": "[REDACTED_IPV4]"
+}
+Response: { "error": "Internal Server Error", "status": 500 }
+[REDACTED_NAME]: whsec_4K6L8M0N2P4Q6R8S0T2U4V6W8X0Y2Z
+
+[REDACTED_DOB_ISO] 08:36:45.567 INFO [Cache] Redis connection established
+Host: redis-cluster.cache-internal.com:6379
+Auth: redis_password_Secure987!
+Client ID: app-server-node-01
+Connected nodes: 3
+Memory usage: 2.4GB / 4GB
+
+[REDACTED_DOB_ISO] 08:37:30.890 ERROR [Session] Session store error - Unable to retrieve session data
+[REDACTED_NAME]: sess_9Z8Y7X6W5V4U3T2S1R0Q9P8O7N
+User: [REDACTED_EMAIL_LIKE] (UID: 55443)
+IP: [REDACTED_IPV4]
+[REDACTED_NAME]: session:sess_9Z8Y7X6W5V4U3T2S1R0Q9P8O7N
+Error: ECONNRESET: Connection reset by peer
+    at Redis.sendCommand ([REDACTED_FILE_PATH]:567:23)
+    at SessionStore.get ([REDACTED_FILE_PATH]:123:18)
+
+[REDACTED_DOB_ISO] 08:38:15.123 INFO [Encryption] Encrypting sensitive user data
+User: [REDACTED_EMAIL_LIKE]
+Fields encrypted: [ssn, credit_card, bank_account]
+Encryption method: AES-256-GCM
+[REDACTED_NAME]: key_BdF7Gh9Jk2Lm4Np6Qr8St0Uv
+IV: a3f5e7d9c1b3a5f7e9d1c3b5
+
+[REDACTED_DOB_ISO] 08:39:45.456 ERROR [JWT] Token verification failed
+Token: [REDACTED_JWT_LIKE]
+Error: TokenExpiredError: jwt expired
+    at verify ([REDACTED_FILE_PATH]:126:19)
+    at JWTMiddleware.authenticate ([REDACTED_FILE_PATH]:45:12)
+User attempting access: [REDACTED_EMAIL_LIKE]
+IP: [REDACTED_IPV4]
+Issued at: [REDACTED_DOB_ISO] 08:39:45
+Expired at: [REDACTED_DOB_ISO] 08:39:45
+
+[REDACTED_DOB_ISO] 08:40:30.789 INFO [Backup] Database backup initiated
+Database: postgresql:/[REDACTED_FILE_PATH]:[REDACTED_EMAIL_LIKE]:5432[REDACTED_FILE_PATH]
+Backup location: s3:/[REDACTED_FILE_PATH][REDACTED_DOB_ISO]/
+Initiated by: [REDACTED_EMAIL_LIKE]
+Estimated size: 15.7 GB
+Status: [REDACTED_NAME]
